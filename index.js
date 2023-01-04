@@ -1,5 +1,5 @@
-// alert("Welcome to the Rock, Paper and Scissors games!");
-// alert("Please open the console to play the game");
+alert("Welcome to the Rock, Paper and Scissors games!");
+alert("Please open the console to play the game");
 
 // Starting coding the game
 
