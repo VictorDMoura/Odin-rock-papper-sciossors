@@ -1,16 +1,43 @@
 // Starting coding the game
+// links to the img
+let imgs = ["https://em-content.zobj.net/thumbs/120/google/350/oncoming-fist_1f44a.png", "https://em-content.zobj.net/thumbs/120/google/350/raised-hand_270b.png", "https://em-content.zobj.net/thumbs/120/google/350/victory-hand_270c-fe0f.png"]
 let choices = ["rock", "paper", "scissors"];
+
+for (const button of document.getElementsByTagName("button")){
+    button.addEventListener("click", function () {
+        playRound(this.id, getComputerChoice());
+    });
+}
+
+
+function idToImg(choice){
+    switch (choice) {
+        case "rock":
+            return imgs[0];
+            break;
+        case "paper":
+            return imgs[1];
+            break;
+        case "scissors":
+            return imgs[2];
+            break;    
+        default:
+            break;
+    }
+}
+
 
 function getComputerChoice(){
     let choice = Math.random() * choices.length;
     choice = Math.floor(choice);
-    return choices[choice];
+    let computerId = document.getElementById("computerChoice");
+    computerId.src = idToImg(choices[choice]);
 }
 
 function playRound(playerSelection, computerSelection){
-    let player = playerSelection.toLowerCase();
-
-
+    let player = playerSelection;
+    let playerId = document.getElementById("playerChoice");
+    playerId.src = idToImg(player);
     if (player === "rock") {
         if (computerSelection === "scissors") {
             return "You Win! Rock beats Scissors";
@@ -67,5 +94,5 @@ function game(){
     }
 }
 
-game();
+// game();
 
