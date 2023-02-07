@@ -3,6 +3,9 @@
 let imgs = ["https://em-content.zobj.net/thumbs/120/google/350/oncoming-fist_1f44a.png", "https://em-content.zobj.net/thumbs/120/google/350/raised-hand_270b.png", "https://em-content.zobj.net/thumbs/120/google/350/victory-hand_270c-fe0f.png"]
 let choices = ["rock", "paper", "scissors"];
 
+let playerScore = 0;
+let computerScore = 0;
+
 for (const button of document.getElementsByTagName("button")){
     button.addEventListener("click", function () {
         playRound(this.id, getComputerChoice());
@@ -32,67 +35,68 @@ function getComputerChoice(){
     choice = Math.floor(choice);
     let computerId = document.getElementById("computerChoice");
     computerId.src = idToImg(choices[choice]);
+    return choices[choice];
 }
 
 function playRound(playerSelection, computerSelection){
     let player = playerSelection;
     let playerId = document.getElementById("playerChoice");
+    let message = document.getElementById("message");
+
+    let computerScoreId = document.getElementById("computerScore");
+    let playerScoreId = document.getElementById("playerScore");
+    
+
+    message.removeAttribute("class");
     playerId.src = idToImg(player);
-    if (player === "rock") {
+
+    if (playerScore >= 5 || computerScore >= 5){
+        message.innerText = "Game is Over! Please refresh the page";
+    } else  if (player === "rock") {
         if (computerSelection === "scissors") {
-            return "You Win! Rock beats Scissors";
+            playerScore++;
+            message.innerText = "You Win!";
+            message.classList = "green";
+            playerScoreId.innerText = playerScore;
+
         } else if (computerSelection === "paper") {
-            return "You Lose! Paper beats Rock";
+            message.innerText = "You loosed";
+            message.classList = "red";
+            computerScore++;
+            computerScoreId.innerText = computerScore;
         } else {
-            return "It's a tie!";
+            message.innerText = "It's a Tie!";
         }
     } else if (player === "paper") {
         if (computerSelection === "scissors") {
-            return "You Lose! Scissors beats paper";
+            message.innerText = "You loose";
+            message.classList = "red";
+            computerScore++;
+            computerScoreId.innerText = computerScore;
         } else if (computerSelection === "rock") {
-            return "You Win! Paper beats Rock";
+            message.innerText = "You Win!";
+            message.classList = "green";
+            playerScore++;
+            playerScoreId.innerText = playerScore;
         } else {
-            return "It's a tie!";
+            message.innerText = "It's a Tie!";
         }
     } else if (player === "scissors") {
         if (computerSelection === "rock") {
-            return "You Lose! Rock beats Scissors";
+            message.innerText = "You loosed";
+            message.classList = "red";
+            computerScore++;
+            computerScoreId.innerText = computerScore;
         } else if (computerSelection === "paper") {
-            return "You Win! Scissors beats paper";
+            message.innerText = "You Win!";
+            message.classList = "green";
+            playerScore++;
+            playerScoreId.innerText = playerScore;
         } else {
-            return "It's a tie!"
+            message.innerText = "It's a Tie!";
         }
     }
-
-
 }
 
-function game(){
-    let playerScore = 0;
-    let computerScore = 0;
-    for(let i = 0; i < 5; i++){
-        console.log("Your score is: " + playerScore);
-        console.log("The computer score is: " + computerScore);
-        // let playerSelection = prompt("Rock, paper or scissors?");
-        computerSelection = getComputerChoice();
-        let result = playRound(playerSelection, computerSelection);
-        console.log(result);
-        if (result.slice(0,7) === "You Win"){
-            playerScore++;
-        } else if (result.slice(0,8) === "You Lose"){
-            computerScore++;
-        }      
 
-    }
-
-    if(computerScore > playerScore){
-        console.log("The computer wins!")
-    } else if (playerScore > computerScore){
-        console.log("You beat the computer!")
-    } else {
-        console.log("It's a tie")
-    }
-}
-
-// game();
 
