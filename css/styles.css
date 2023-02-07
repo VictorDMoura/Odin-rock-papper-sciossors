@@ -130,6 +130,55 @@ table {
 
 /* start of the css */
 
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #ffc300;
+  color: #000814;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.5em;
+  font-weight: 900;
+}
+
+h3 {
+  font-size: 1.5em;
+  font-weight: 400;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin-top: 1em;
+}
+
 .header {
   text-align: center;
+  padding: 1.5em;
+}
+
+.container {
+  margin: 1em auto;
+  width: 65%;
+}
+
+.selection-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.box {
+  text-align: center;
+  color: #fff;
+  display: border-box;
+  width: 20em;
+  height: 20em;
+  background-color: #000814;
+}
+
+.score {
+  display: block;
+  background-color: #001d3d;
+  padding: 1rem;
 }

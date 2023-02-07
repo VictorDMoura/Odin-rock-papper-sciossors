@@ -3,15 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;900&display=swap"
+      rel="stylesheet"
+    />
     <title>Rock, Paper and Scissors</title>
   </head>
   <body>
     <header class="header">
-      <h1>Rock, Paper and Scissors game</h1>
+      <h1>Rock, Paper and Scissors</h1>
       <h3>Try your luck!</h3>
       <p>The first to win 5 times wins the game!</p>
     </header>
-    <main></main>
+    <main>
+      <div class="container">
+        <div class="selection-menu">
+          <div class="box">
+            <div id="playerScore" class="score">
+              <h3>You: 0</h3>
+            </div>
+          </div>
+          <div class="box">
+            <div id="computerScore" class="score">
+              <h3>Computer: 0</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
     <script src="index.js"></script>
   </body>
 </html>
