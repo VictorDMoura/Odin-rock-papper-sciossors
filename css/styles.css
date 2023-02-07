@@ -144,7 +144,7 @@ h1 {
 
 h3 {
   font-size: 1.5em;
-  font-weight: 400;
+  font-weight: 600;
   margin-top: 1em;
   margin-bottom: 0.5em;
 }
@@ -181,4 +181,45 @@ p {
   display: block;
   background-color: #001d3d;
   padding: 1rem;
+}
+
+.player-selector {
+  margin: 2em auto;
+  width: 45%;
+}
+
+.container-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+button {
+  border-radius: 50%;
+  height: 20%;
+  background-color: #001d3d;
+  padding: 1em 2.5em;
+}
+
+.box img {
+  margin-top: 3rem;
+}
+
+button img {
+  width: 3.5rem;
+  height: auto;
+}
+
+button:hover {
+  background-color: #000814;
+  cursor: pointer;
+}
+
+.red {
+  color: red;
 }
